@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>David López Polímeros</title>
+<meta name="description" content="David López, Ingeniero Industrial. Consultor senior en transformación de polímeros: montaje de plantas llave en mano, mejora continua y capacitación in company para Argentina y LATAM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: plano técnico industrial — banda de grafito con esquema de extrusora, luego secciones sobre papel frío con rótulos tipo plano y códigos de resina */
+:root{
+  --bg:#F2F4F5; --surface:#FFFFFF; --ink:#16212B; --muted:#56646F; --line:#D5DBDF;
+  --band:#16212B; --band-ink:#EEF2F4; --band-muted:#9AA8B2; --band-line:#2C3A46;
+  --accent:#D9581B; --accent-ink:#FFFFFF; --accent-soft:#F7E3D8;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F161C; --surface:#16202A; --ink:#E7ECEF; --muted:#98A6B0; --line:#2A3743;
+  --band:#0A1015; --band-ink:#EEF2F4; --band-muted:#8F9EA9; --band-line:#22303B;
+  --accent:#F07235; --accent-ink:#140A04; --accent-soft:#3A2216; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F161C; --surface:#16202A; --ink:#E7ECEF; --muted:#98A6B0; --line:#2A3743;
+  --band:#0A1015; --band-ink:#EEF2F4; --band-muted:#8F9EA9; --band-line:#22303B;
+  --accent:#F07235; --accent-ink:#140A04; --accent-soft:#3A2216; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--accent);font-weight:500}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);color:var(--band-ink);border-bottom:1px solid var(--band-line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.brand strong{font-family:var(--f-display);font-stretch:118%;font-weight:800;font-size:19px;letter-spacing:.01em}
+.brand span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--band-muted)}
+.nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:14px;color:var(--band-muted)}
+.nav a:hover{color:var(--band-ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:15px;padding:12px 20px;border-radius:3px;text-decoration:none;border:0;cursor:pointer;font-family:var(--f-body)}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--band-ink);box-shadow:inset 0 0 0 1px var(--band-line)}
+.nav .btn{padding:9px 16px;font-size:14px;color:var(--accent-ink)}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+
+/* Hero */
+.hero{background:var(--band);color:var(--band-ink)}
+.hero .wrap{padding-block:72px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+.hero h1{font-stretch:112%;font-weight:800;font-size:clamp(38px,6vw,72px);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin-top:24px;font-size:19px;color:var(--band-muted);max-width:56ch}
+.hero .lead strong{color:var(--band-ink);font-weight:500}
+.hero .ctas{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .label{color:var(--band-muted);margin-bottom:22px;display:block}
+.portrait{aspect-ratio:4/5;max-width:100%;border:1px solid var(--band-line);background:
+  repeating-linear-gradient(0deg,transparent 0 23px,var(--band-line) 23px 24px),
+  repeating-linear-gradient(90deg,transparent 0 23px,var(--band-line) 23px 24px);display:flex;align-items:flex-end;padding:18px;position:relative}
+.portrait .ph{font-family:var(--f-mono);font-size:12px;color:var(--band-muted);background:var(--band);padding:8px 10px;border:1px dashed var(--band-line)}
+.portrait .tag{position:absolute;top:16px;right:16px;font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:48px 40px}.portrait{aspect-ratio:16/10}}
+
+/* Extruder schematic */
+.schematic{background:var(--band);color:var(--band-muted);border-top:1px solid var(--band-line)}
+.schematic .wrap{padding-block:26px 34px}
+.sch-scroll{overflow-x:auto}
+.schematic svg{display:block;min-width:720px;width:100%;height:auto}
+.schematic svg text{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;fill:var(--band-muted)}
+
+/* Credentials strip */
+.creds{border-bottom:1px solid var(--line);background:var(--surface)}
+.creds .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-block:0}
+.cred{padding:28px 22px 28px 0;border-right:1px solid var(--line)}
+.cred + .cred{padding-left:22px}
+.cred:last-child{border-right:0}
+.cred .n{font-family:var(--f-display);font-stretch:120%;font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1;font-variant-numeric:tabular-nums}
+.cred .n small{font-size:.5em;color:var(--accent)}
+.cred p{margin-top:8px;color:var(--muted);font-size:14.5px;line-height:1.45}
+@media (max-width:860px){.cred .n{font-size:26px}.creds .wrap{grid-template-columns:1fr 1fr}.cred{padding:22px 16px!important;border-right:0;border-bottom:1px solid var(--line)}.cred:nth-child(odd){border-right:1px solid var(--line)}}
+
+/* About */
+.about .wrap{padding-block:72px 0;display:grid;grid-template-columns:260px 1fr;gap:40px}
+.about p{font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:var(--muted);max-width:52ch}
+.about p strong{color:var(--ink);font-weight:600}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr;gap:14px;padding-block:52px 0}}
+
+/* Sections */
+section.s{padding-block:96px}
+.s-head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:48px}
+.s-head h2{font-stretch:108%;font-weight:750;font-size:clamp(30px,4vw,46px);letter-spacing:-.005em}
+.s-head .intro{margin-top:16px;color:var(--muted);font-size:18px;max-width:62ch}
+@media (max-width:860px){section.s{padding-block:64px}.s-head{grid-template-columns:1fr;gap:14px;margin-bottom:32px}}
+
+/* Services */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc{background:var(--surface);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.svc.main{border-top:3px solid var(--accent)}
+.svc h3{font-stretch:105%;font-weight:700;font-size:26px}
+.svc p{color:var(--muted)}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.svc li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:15.5px}
+.svc li::before{content:"";width:8px;height:8px;margin-top:9px;background:var(--accent)}
+.svc .for{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.svc .for b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.services{grid-template-columns:1fr}.svc.main{grid-row:auto}.svc{padding:24px}}
+
+/* Turnkey phases */
+.phases-band{background:var(--surface);border-block:1px solid var(--line)}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.ph-item{padding:24px 22px 28px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.ph-item:not(:nth-child(4n+1)){padding-left:22px;border-left:1px solid var(--line)}
+.ph-item .k{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.ph-item h3{font-family:var(--f-body);font-weight:600;font-size:17px;line-height:1.3}
+.ph-item p{color:var(--muted);font-size:14.5px;line-height:1.5}
+@media (max-width:860px){.phases{grid-template-columns:1fr 1fr}.ph-item{padding:20px 14px!important;border-left:0!important}.ph-item:nth-child(odd){border-right:1px solid var(--line)}}
+@media (max-width:480px){.phases{grid-template-columns:1fr}.ph-item:nth-child(odd){border-right:0}}
+
+/* Materials & processes */
+.matproc{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.resins{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.resin{background:var(--surface);border:1px solid var(--line);padding:14px 16px;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center}
+.ric{width:40px;height:40px;position:relative;display:grid;place-items:center;font-family:var(--f-mono);font-weight:500;font-size:14px}
+.ric svg{position:absolute;inset:0;width:100%;height:100%}
+.ric svg path{fill:none;stroke:var(--accent);stroke-width:2.2}
+.resin b{font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:18px;display:block;line-height:1.1}
+.resin span{font-size:12.5px;color:var(--muted);line-height:1.3;display:block}
+.procs{border-top:1px solid var(--line)}
+.proc{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.proc b{font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:19px}
+.proc span{color:var(--muted);font-size:15px}
+.sub{margin-bottom:18px}
+@media (max-width:860px){.matproc{grid-template-columns:1fr;gap:44px}.proc{grid-template-columns:1fr;gap:2px}}
+
+/* Markets */
+.markets{display:flex;flex-wrap:wrap;gap:10px}
+.mk{border:1px solid var(--line);background:var(--surface);padding:12px 18px;border-radius:999px;font-weight:500;font-size:15.5px}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.g{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.g-lg{grid-column:span 2;grid-row:span 2}
+.g-img{flex:1;aspect-ratio:4/3;max-width:100%;border:1px solid var(--line);display:flex;align-items:flex-end;padding:12px;background:var(--surface) repeating-linear-gradient(45deg,transparent 0 14px,var(--line) 14px 15px);overflow:hidden}
+.g-img img{width:100%;height:100%;object-fit:cover;display:block}
+.g-img .ph{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);background:var(--surface);padding:6px 8px;border:1px dashed var(--line)}
+.g figcaption{display:grid;gap:2px}
+.g figcaption b{font-weight:600;font-size:15px}
+.g figcaption span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:860px){.gallery{grid-template-columns:1fr 1fr}.g-lg{grid-column:span 2;grid-row:auto}}
+
+/* Plantas en operación */
+.symptoms{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--band-line);border:1px solid var(--band-line);margin-bottom:56px}
+.sym{background:var(--band);padding:20px 22px;display:grid;gap:6px;min-width:0}
+.sym b{font-family:var(--f-display);font-stretch:108%;font-weight:700;font-size:19px;line-height:1.2}
+.sym b::before{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:10px;vertical-align:middle}
+.sym span{color:var(--band-muted);font-size:15px;line-height:1.5}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.deep{border:1px solid var(--band-line);border-top:3px solid var(--accent);padding:32px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.deep h3{font-stretch:105%;font-weight:700;font-size:26px}
+.deep>p{color:var(--band-muted)}
+.steps{margin:0;padding:0;list-style:none;counter-reset:st;display:grid;gap:12px}
+.steps li{counter-increment:st;position:relative;padding-left:42px;font-size:15.5px;color:var(--band-muted);line-height:1.5}
+.steps li::before{content:counter(st,decimal-leading-zero);position:absolute;left:0;top:3px;font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.steps b{color:var(--band-ink);font-weight:600}
+.tags{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.tags li,.tags span{border:1px solid var(--band-line);padding:6px 12px;border-radius:999px;font-size:13.5px;color:var(--band-ink)}
+.metrics{margin-top:40px;padding-top:28px;border-top:1px solid var(--band-line);display:grid;gap:16px;justify-items:start}
+@media (max-width:860px){.symptoms{grid-template-columns:1fr}.two{grid-template-columns:1fr}.deep{padding:24px}}
+
+/* Timeline */
+.career-band{background:var(--band);color:var(--band-ink)}
+.career-band .s-head .intro{color:var(--band-muted)}
+.career-band .label{color:var(--band-muted)}
+.tl{display:grid;gap:0;border-top:1px solid var(--band-line)}
+.tl-row{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:28px 0;border-bottom:1px solid var(--band-line)}
+.tl-row .when{font-family:var(--f-mono);font-size:13px;color:var(--band-muted);letter-spacing:.05em}
+.tl-row .when b{display:block;font-family:var(--f-display);font-stretch:115%;font-weight:750;font-size:22px;color:var(--band-ink);letter-spacing:0;margin-top:6px}
+.tl-row h3{font-family:var(--f-body);font-weight:600;font-size:18px;line-height:1.35}
+.tl-row p{color:var(--band-muted);margin-top:6px;max-width:68ch}
+.tl-row .hito{margin-top:12px;display:inline-block;font-size:14px;color:var(--band-ink);border-left:3px solid var(--accent);padding:4px 0 4px 12px}
+.edu{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.edu div{border:1px solid var(--band-line);padding:20px}
+.edu b{display:block;font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:18px;margin-top:8px}
+.edu p{color:var(--band-muted);font-size:14.5px;margin-top:4px}
+@media (max-width:860px){.tl-row{grid-template-columns:1fr;gap:10px;padding:22px 0}.edu{grid-template-columns:1fr}}
+
+/* Asia */
+.asia{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.asia blockquote{margin:0;font-family:var(--f-display);font-stretch:105%;font-weight:600;font-size:clamp(24px,3vw,32px);line-height:1.2}
+.asia blockquote span{color:var(--accent)}
+.checks{display:grid;gap:14px}
+.check{display:grid;grid-template-columns:28px 1fr;gap:12px}
+.check i{width:22px;height:22px;border:1.5px solid var(--accent);display:grid;place-items:center;font-style:normal;color:var(--accent);font-size:13px;margin-top:2px}
+.check b{font-weight:600}
+.check p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.asia{grid-template-columns:1fr;gap:32px}}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
+.contact h2{font-stretch:110%;font-weight:800;font-size:clamp(32px,4.4vw,52px)}
+.contact .intro{margin-top:18px;color:var(--muted);font-size:18px;max-width:46ch}
+.direct{margin-top:32px;display:grid;gap:12px}
+.direct div{display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:15px;border-top:1px solid var(--line);padding-top:12px}
+.direct span:last-child{user-select:all;overflow-wrap:anywhere;min-width:0}
+form{background:var(--surface);border:1px solid var(--line);padding:32px;display:grid;gap:16px;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-size:13.5px;font-weight:500}
+input,select,textarea{font:inherit;font-size:15.5px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:11px 12px;width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.form-note{font-size:13px;color:var(--muted)}
+.ok{background:var(--accent-soft);padding:14px 16px;font-size:15px;border-left:3px solid var(--accent)}
+@media (max-width:860px){.contact{grid-template-columns:1fr;gap:36px}.row2{grid-template-columns:1fr}form{padding:22px}}
+
+footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.draft{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);letter-spacing:.06em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><strong>DAVID LÓPEZ</strong><span>Ing. Industrial · Polímeros</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#mejora">Mejora y capacitación</a>
+      <a href="#llave-en-mano">Llave en mano</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a class="btn" href="#contacto">Agendar diagnóstico</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="label"><b>●</b>&nbsp; Consultoría senior · Argentina y LATAM</span>
+        <h1>La experiencia más completa de Latinoamérica para <em>potenciar tu negocio del plástico.</em></h1>
+        <p class="lead"><strong>Transformo plantas y procesos de plástico en negocios más rentables y competitivos.</strong> Inversiones que se recuperan antes, procesos estables, menos scrap y equipos con autonomía técnica, listos para crecer en toda la región.</p>
+        <div class="ctas">
+          <a class="btn" href="#contacto">Agendar un diagnóstico</a>
+          <a class="btn ghost" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="portrait" role="img" aria-label="Espacio para fotografía profesional de David López en planta">
+        <span class="tag">FIG. 01</span>
+        <span class="ph">[ Foto de David en planta, junto a una línea de extrusión ]</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="schematic" aria-hidden="true">
+    <div class="wrap">
+      <div class="sch-scroll">
+        <svg viewBox="0 0 1140 150" role="presentation">
+          <defs>
+            <pattern id="flight" width="26" height="40" patternUnits="userSpaceOnUse"><path d="M4 0 L22 40" stroke="currentColor" stroke-width="2" fill="none" opacity=".7"/></pattern>
+            <pattern id="flight2" width="18" height="40" patternUnits="userSpaceOnUse"><path d="M3 0 L15 40" stroke="currentColor" stroke-width="2" fill="none" opacity=".7"/></pattern>
+            <pattern id="flight3" width="12" height="40" patternUnits="userSpaceOnUse"><path d="M2 0 L10 40" stroke="currentColor" stroke-width="2" fill="none" opacity=".7"/></pattern>
+          </defs>
+          <!-- hopper -->
+          <path d="M70 18 L150 18 L126 56 L94 56 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="66" y="12">TOLVA</text>
+          <!-- barrel -->
+          <rect x="60" y="56" width="820" height="56" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="76" y="64" width="270" height="40" fill="url(#flight)"/>
+          <rect x="346" y="64" width="270" height="40" fill="url(#flight2)"/>
+          <rect x="616" y="64" width="260" height="40" fill="url(#flight3)"/>
+          <!-- heater bands -->
+          <g fill="#D9581B" opacity=".9"><rect x="180" y="50" width="70" height="4"/><rect x="420" y="50" width="70" height="4"/><rect x="660" y="50" width="70" height="4"/><rect x="180" y="114" width="70" height="4"/><rect x="420" y="114" width="70" height="4"/><rect x="660" y="114" width="70" height="4"/></g>
+          <!-- die -->
+          <path d="M880 56 L960 70 L960 98 L880 112 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <!-- profile out -->
+          <rect x="960" y="78" width="160" height="12" fill="#D9581B" opacity=".85"/>
+          <line x1="346" y1="122" x2="346" y2="134" stroke="currentColor"/><line x1="616" y1="122" x2="616" y2="134" stroke="currentColor"/>
+          <text x="140" y="140">ALIMENTACIÓN</text>
+          <text x="420" y="140">COMPRESIÓN</text>
+          <text x="680" y="140">DOSIFICACIÓN</text>
+          <text x="890" y="140">CABEZAL</text>
+          <text x="1000" y="70">PERFIL</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="creds">
+    <div class="wrap">
+      <div class="cred"><div class="n">20<small>+</small></div><p>años en la industria de transformación de polímeros</p></div>
+      <div class="cred"><div class="n">5</div><p>procesos dominados: extrusión, inyección, soplado, termoformado, rotomoldeo</p></div>
+      <div class="cred"><div class="n">LATAM</div><p>gerencias regionales en A. Schulman y LyondellBasell, líderes mundiales en polímeros</p></div>
+      <div class="cred"><div class="n">Mercosur</div><p>proyectos pioneros que posicionaron a Argentina en la industria plástica regional</p></div>
+    </div>
+  </div>
+
+  <section class="about">
+    <div class="wrap">
+      <span class="label"><b>●</b> Quién soy</span>
+      <p><strong>Ingeniero Industrial con más de 20 años en transformación de polímeros.</strong> Diseño, equipo y pongo en marcha plantas de extrusión, inyección, soplado, termoformado y rotomoldeo, y resuelvo los problemas de proceso de las que ya están produciendo.</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="s" id="servicios">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§1</b> Servicios</span>
+        <div>
+          <h2>Cuatro formas de trabajar juntos</h2>
+          <p class="intro">Desde una planta que todavía es un terreno hasta una línea que produce scrap que nadie sabe explicar. Cada servicio empieza con un diagnóstico técnico y termina con resultados medibles en planta.</p>
+        </div>
+      </div>
+      <div class="services">
+        <article class="svc main">
+          <span class="label"><b>A</b> Proyecto integral</span>
+          <h3>Montaje de plantas industriales llave en mano</h3>
+          <p>Acompaño el proyecto completo, desde la definición del producto hasta la producción estable, con un único responsable técnico de punta a punta.</p>
+          <ul>
+            <li>Diseño de planta, layout y dimensionamiento de líneas</li>
+            <li>Selección y compra de maquinaria nacional e importada, con especialización en equipos fabricados en Asia</li>
+            <li>Implementación, instalación y puesta a punto</li>
+            <li>Cumplimiento de normativas y acompañamiento en certificaciones</li>
+            <li>Diseño de procesos y estándares de calidad</li>
+            <li>Diseño y equipamiento del laboratorio de control</li>
+            <li>Puesta en marcha, capacitación del personal y mejora continua</li>
+          </ul>
+          <p class="for"><b>Para:</b> inversores, empresas que se diversifican hacia el plástico y transformadores que suman una nueva tecnología.</p>
+        </article>
+        <article class="svc main">
+          <span class="label"><b>B</b> Equipamiento</span>
+          <h3>Asesoría para adquisición de maquinaria en Asia</h3>
+          <p>Asesoría a empresas que están por adquirir equipos de producción y de laboratorio en Asia, con respaldo técnico en cada etapa, desde la especificación hasta la máquina produciendo en tu planta.</p>
+          <ul>
+            <li>Definición de especificaciones técnicas y de calidad de cada equipo</li>
+            <li>Búsqueda, evaluación y desarrollo de proveedores</li>
+            <li>Visitas a fábricas de proveedores para validar capacidad, construcción y calidad</li>
+            <li>Comparación técnica y comercial de ofertas</li>
+            <li>Pruebas de aceptación antes del embarque, con la materia prima del cliente</li>
+            <li>Recepción de las máquinas in situ, instalación y puesta a punto</li>
+            <li>Equipamiento de laboratorio para control de materia prima y producto</li>
+          </ul>
+          <p class="for"><b>Para:</b> empresas que quieren aprovechar el costo del equipamiento asiático sin asumir el riesgo técnico de la compra.</p>
+        </article>
+        <article class="svc">
+          <span class="label"><b>C</b> Planta en operación</span>
+          <h3>Mejora continua y resolución de problemas de proceso y producto</h3>
+          <p>Análisis de causa raíz en procesos que ya están produciendo: defectos, scrap, inestabilidad dimensional, ciclos lentos, consumo energético y rendimiento de materia prima.</p>
+          <p class="for"><b>Para:</b> plantas que necesitan bajar costos o cerrar un reclamo de cliente. <a href="#mejora">Ver detalle</a></p>
+        </article>
+        <article class="svc">
+          <span class="label"><b>D</b> Formación</span>
+          <h3>Capacitación in company</h3>
+          <p>Programas teóricos y prácticos sobre la propia línea del cliente, para operarios, técnicos de proceso, calidad y mandos medios.</p>
+          <ul>
+            <li>Procesamiento de polímeros: extrusión, inyección, soplado, termoformado y rotomoldeo</li>
+            <li>Materiales y su comportamiento en proceso</li>
+            <li>Diseño de producto para su fabricación</li>
+            <li>Estándares de calidad y control de proceso</li>
+            <li>Especificaciones técnicas de materia prima y producto</li>
+            <li>Detección y solución de defectos en planta</li>
+          </ul>
+          <p class="for"><b>Para:</b> equipos que necesitan autonomía técnica y un lenguaje común de proceso. <a href="#mejora">Ver detalle</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANTAS EN OPERACIÓN -->
+  <section class="s career-band" id="mejora">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§2</b> Plantas en operación</span>
+        <div>
+          <h2>Cuando la planta produce, pero el negocio pierde plata</h2>
+          <p class="intro">Muchas empresas del plástico tienen máquinas, clientes y pedidos, y aun así ven caer el margen cada mes. Casi nunca falta mercado. Lo que falta es control técnico del proceso y gente formada para sostenerlo.</p>
+        </div>
+      </div>
+
+      <p class="label" style="margin-bottom:16px">Señales de que tu planta está perdiendo dinero</p>
+      <div class="symptoms">
+        <div class="sym"><b>Scrap y reprocesos altos</b><span>Material que se compra a precio de virgen y se vende como molido.</span></div>
+        <div class="sym"><b>Reclamos y devoluciones</b><span>Clientes que rechazan lotes y empiezan a buscar otro proveedor.</span></div>
+        <div class="sym"><b>Desarrollos que no salen</b><span>Productos nuevos que no llegan a especificación o salen caros de fabricar.</span></div>
+        <div class="sym"><b>Máquinas por debajo de su capacidad</b><span>Ciclos lentos, paradas frecuentes y kg/h lejos de lo que el equipo permite.</span></div>
+        <div class="sym"><b>Calidad que depende del turno</b><span>El mismo producto sale distinto según quién opera la línea.</span></div>
+        <div class="sym"><b>Conocimiento en una sola persona</b><span>Cuando el técnico que "sabe" no está, la planta se frena.</span></div>
+      </div>
+
+      <div class="two">
+        <article class="deep">
+          <span class="label"><b>C</b> Mejora de procesos y resolución de problemas</span>
+          <h3>Encontrar la causa, corregirla y que no vuelva</h3>
+          <p>Trabajo e investigación de campo, sobre la línea y con los datos reales de producción. El objetivo es recuperar margen con cambios medibles, sin depender de prueba y error.</p>
+          <ol class="steps">
+            <li><b>Diagnóstico en planta.</b> Relevamiento de la línea, parámetros, materia prima, moldes y matrices, registros de calidad y reclamos.</li>
+            <li><b>Análisis de causa raíz.</b> Pruebas controladas y ensayos para separar el síntoma del origen real del problema.</li>
+            <li><b>Plan de acción con impacto económico.</b> Cada medida priorizada según lo que ahorra o lo que recupera.</li>
+            <li><b>Implementación y estandarización.</b> Ventanas de proceso, fichas técnicas y planes de control para que el resultado se sostenga.</li>
+            <li><b>Seguimiento con indicadores.</b> Medición antes y después, hasta confirmar que la mejora quedó instalada.</li>
+          </ol>
+          <p class="label" style="margin-top:8px">Problemas típicos que resuelve</p>
+          <ul class="tags">
+            <li>Inestabilidad dimensional</li><li>Alabeo y rechupes</li><li>Piezas incompletas</li><li>Degradación del material</li><li>Gelificación deficiente en PVC</li><li>Espesores irregulares en soplado</li><li>Burbujas y deformación en rotomoldeo</li><li>Defectos superficiales</li><li>Ciclos lentos</li><li>Alto consumo energético</li><li>Desarrollos fuera de especificación</li><li>Costo excesivo de formulación</li>
+          </ul>
+        </article>
+        <article class="deep">
+          <span class="label"><b>D</b> Capacitación in company</span>
+          <h3>Un equipo que entiende el proceso deja de cometer los mismos errores</h3>
+          <p>Gran parte de los problemas de una planta se repiten porque el equipo no tiene la formación para prevenirlos. La capacitación combina teoría y práctica en la propia máquina del cliente, con los materiales y productos que la empresa fabrica.</p>
+          <ol class="steps">
+            <li><b>Diagnóstico de necesidades.</b> Qué sabe hoy el equipo y qué errores se repiten en planta.</li>
+            <li><b>Programa a medida.</b> Contenidos y niveles definidos según el proceso, el producto y los puestos.</li>
+            <li><b>Teoría aplicada.</b> Materiales, procesamiento, diseño de producto, estándares de calidad y especificaciones técnicas.</li>
+            <li><b>Práctica en máquina.</b> Arranques, ajustes, cambios y solución de defectos sobre la línea real.</li>
+            <li><b>Evaluación y material de consulta.</b> Para medir lo aprendido y dejar el conocimiento en la empresa.</li>
+          </ol>
+          <p class="label" style="margin-top:8px">Para cada nivel de la planta</p>
+          <ul class="tags">
+            <li>Operarios</li><li>Técnicos de proceso y puesta a punto</li><li>Calidad y laboratorio</li><li>Ingeniería y desarrollo de producto</li><li>Supervisores y mandos medios</li><li>Gerencia: decisiones técnico-económicas</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="metrics">
+        <p class="label">Lo que se mide antes y después</p>
+        <div class="tags">
+          <span>% de scrap</span><span>kg/h producidos</span><span>Tiempo de ciclo</span><span>OEE</span><span>Reclamos de clientes</span><span>Costo por kg</span><span>Tiempo de cambio de producto</span>
+        </div>
+        <a class="btn" href="#contacto">Solicitar un diagnóstico de planta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LLAVE EN MANO -->
+  <section class="s phases-band" id="llave-en-mano">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§3</b> Método llave en mano</span>
+        <div>
+          <h2>De la idea a la producción estable, en ocho etapas</h2>
+          <p class="intro">Un proyecto industrial falla en las transiciones entre proveedores, ingeniería y operación. Por eso cada etapa tiene entregables concretos y un mismo responsable.</p>
+        </div>
+      </div>
+      <div class="phases">
+        <div class="ph-item"><span class="k">ETAPA 01</span><h3>Diagnóstico y diseño</h3><p>Producto, volúmenes, proceso adecuado, layout y presupuesto de inversión.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 02</span><h3>Adquisición de equipos</h3><p>Especificación técnica, comparación de proveedores, negociación e inspección de fábrica.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 03</span><h3>Implementación</h3><p>Obra, servicios auxiliares, instalación mecánica y eléctrica de las líneas.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 04</span><h3>Normativas y certificaciones</h3><p>Requisitos regulatorios del producto y del mercado de destino.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 05</span><h3>Procesos y calidad</h3><p>Ventanas de proceso, fichas técnicas, planes de control y criterios de aceptación.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 06</span><h3>Laboratorio</h3><p>Ensayos de materia prima y producto terminado, equipamiento y procedimientos.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 07</span><h3>Puesta en marcha</h3><p>Primeras corridas, ajuste de parámetros y validación del producto con el cliente.</p></div>
+        <div class="ph-item"><span class="k">ETAPA 08</span><h3>Capacitación y mejora</h3><p>Formación del equipo y seguimiento de indicadores hasta la operación autónoma.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA TÉCNICA -->
+  <section class="s" id="experiencia">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§4</b> Experiencia técnica</span>
+        <div>
+          <h2>Materiales, procesos y mercados</h2>
+          <p class="intro">Conocimiento probado en planta sobre commodities y plásticos de ingeniería, en las cinco grandes tecnologías de transformación.</p>
+        </div>
+      </div>
+      <div class="matproc">
+        <div>
+          <p class="label sub">Polímeros</p>
+          <div class="resins">
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>5</div><div><b>PP</b><span>Polipropileno</span></div></div>
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>2</div><div><b>PE</b><span>Polietileno (HDPE · LDPE)</span></div></div>
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>3</div><div><b>PVC</b><span>Rígido y flexible</span></div></div>
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>7</div><div><b>PA</b><span>Poliamidas</span></div></div>
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>7</div><div><b>PC</b><span>Policarbonato</span></div></div>
+            <div class="resin"><div class="ric"><svg viewBox="0 0 40 40"><path d="M20 4 L36 33 L4 33 Z"/></svg>7</div><div><b>ABS</b><span>y otros plásticos de ingeniería</span></div></div>
+          </div>
+          <p class="form-note" style="margin-top:12px">El número es el código de identificación de resina (SPI).</p>
+        </div>
+        <div>
+          <p class="label sub">Procesos</p>
+          <div class="procs">
+            <div class="proc"><b>Extrusión</b><span>Perfilería, tubos, láminas y film. Especialidad en perfilería de PVC.</span></div>
+            <div class="proc"><b>Inyección</b><span>Piezas técnicas, autopartes, electrodomésticos y packaging rígido.</span></div>
+            <div class="proc"><b>Soplado</b><span>Envases y bidones de PE y PP.</span></div>
+            <div class="proc"><b>Termoformado</b><span>Bandejas, envases y piezas técnicas de lámina.</span></div>
+            <div class="proc"><b>Rotomoldeo</b><span>Tanques, contenedores y piezas huecas de gran tamaño.</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:56px">
+        <p class="label sub">Mercados atendidos</p>
+        <div class="markets">
+          <span class="mk">Automotriz</span><span class="mk">Industrial</span><span class="mk">Packaging</span><span class="mk">Electrodomésticos</span><span class="mk">Agro</span><span class="mk">Petróleo</span><span class="mk">Minería</span><span class="mk">Construcción</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASIA -->
+  <section class="s phases-band" id="asia">
+    <div class="wrap asia">
+      <div>
+        <span class="label"><b>§5</b> Compra de maquinaria en Asia</span>
+        <blockquote style="margin-top:18px">Una máquina barata que no produce es la inversión más cara de la planta. <span>La diferencia está en cómo se especifica, se inspecciona y se pone a punto.</span></blockquote>
+      </div>
+      <div class="checks">
+        <div class="check"><i>✓</i><div><b>Especificación técnica precisa</b><p>Lo que la línea tiene que producir, escrito en términos que el fabricante no puede interpretar a su favor.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Selección y negociación de proveedores</b><p>Comparación técnica y comercial de fabricantes de equipos.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Pruebas de aceptación en fábrica</b><p>Validación del equipo antes del embarque, con la materia prima y el producto del cliente.</p></div></div>
+        <div class="check"><i>✓</i><div><b>Instalación y puesta a punto local</b><p>Hasta que la línea produce dentro de especificación, con el equipo propio capacitado.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE PROYECTOS -->
+  <section class="s" id="proyectos">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§6</b> Proyectos en planta</span>
+        <div>
+          <h2>Plantas, líneas y productos que llevan su firma</h2>
+          <p class="intro">Una selección de plantas montadas, líneas puestas en marcha y productos desarrollados en Argentina y Latinoamérica.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="g g-lg"><div class="g-img"><span class="ph">[ Foto 01 · vista general de planta ]</span></div><figcaption><b>[Nombre del proyecto]</b><span>Extrusión · [País, año]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 02 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 03 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 04 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 05 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 06 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 07 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+        <figure class="g"><div class="g-img"><span class="ph">[ Foto 08 ]</span></div><figcaption><b>[Proyecto]</b><span>[Proceso · País]</span></figcaption></figure>
+      </div>
+      <p class="form-note" style="margin-top:14px">Espacio para 5 a 10 fotos. Formato sugerido: horizontal 4:3, mínimo 1600 px de ancho.</p>
+    </div>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section class="s career-band" id="trayectoria">
+    <div class="wrap">
+      <div class="s-head">
+        <span class="label"><b>§7</b> Trayectoria</span>
+        <div>
+          <h2>Dos décadas construyendo la industria plástica de la región</h2>
+          <p class="intro">De la gerencia de planta al desarrollo de mercado para multinacionales, y de ahí a fundar y dirigir proyectos industriales propios.</p>
+        </div>
+      </div>
+      <div class="tl">
+        <div class="tl-row">
+          <div class="when">Desde 2003<b>PVC Tecnocom</b></div>
+          <div><h3>Gerente de Planta de Extrusión de Perfilería de PVC</h3><p>Ascenso rápido hasta la gerencia de la planta de extrusión.</p><span class="hito">Gerenció la implementación de la primera planta de perfilería de PVC para aberturas de Sudamérica.</span></div>
+        </div>
+        <div class="tl-row">
+          <div class="when">Multinacional · +60 plantas<b>A. Schulman Inc.</b></div>
+          <div><h3>Construcción y puesta en marcha de la planta en Argentina</h3><p>Gerencia de Customer Service y Gerencia de Desarrollo de Productos para LATAM.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="when">Petroquímica líder mundial<b>LyondellBasell</b></div>
+          <div><h3>Business Development Manager LATAM</h3><p>Tras la adquisición de A. Schulman, lideró el desarrollo de mercado en Specialty Powders y Empaque Flexible para toda la región.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="when">Socio-Director<b>Union Polymers Argentina</b></div>
+          <div><h3>Dirección de Desarrollo Técnico de Productos</h3><p>Desarrollo técnico de productos y soporte a transformadores.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="when">Socio fundador<b>Techwelle</b></div>
+          <div><h3>Diseño y puesta en marcha de planta, desarrollo de mercado</h3><p>Primera compañía argentina en fabricar láminas termoacústicas de PVC para los mercados de construcción y agroindustria.</p><span class="hito">Un hito para el posicionamiento industrial de Argentina en el Mercosur.</span></div>
+        </div>
+      </div>
+      <div class="edu">
+        <div><span class="label">Formación</span><b>Ingeniero Industrial</b><p>Universidad Tecnológica Nacional (UTN), Buenos Aires. Cursó además 4 años de Ingeniería Aeronáutica.</p></div>
+        <div><span class="label">Docencia</span><b>Profesor adjunto</b><p>Cámara Argentina de Plástico.</p></div>
+        <div><span class="label">Docencia</span><b>Profesor adjunto</b><p>Universidad Católica Argentina (UCA).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="s" id="contacto">
+    <div class="wrap contact">
+      <div>
+        <span class="label"><b>§8</b> Contacto</span>
+        <h2 style="margin-top:16px">Contame qué querés producir.</h2>
+        <p class="intro">La primera conversación es un diagnóstico técnico de 30 minutos para entender el proyecto o el problema y definir si puedo ayudarte. Atiendo proyectos en Argentina y en toda Latinoamérica.</p>
+        <div class="direct">
+          <div><span class="label">Email</span><span>davidlopez27@yahoo.com.ar</span></div>
+          <div><span class="label">Celular / WhatsApp</span><span><a href="https://wa.me/5491139241950" target="_blank" rel="noopener">+54 9 11 3924-1950</a></span></div>
+          <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/search/results/all/?keywords=David%20Lopez%20Union%20Polymers" target="_blank" rel="noopener">David López · Union Polymers</a></div>
+          <div><span class="label">Base</span><span>Buenos Aires, Argentina</span></div>
+        </div>
+      </div>
+      <form id="lead-form" novalidate>
+        <div class="row2">
+          <label for="f-name">Nombre y apellido<input id="f-name" name="name" required autocomplete="name"></label>
+          <label for="f-company">Empresa<input id="f-company" name="company" autocomplete="organization"></label>
+        </div>
+        <div class="row2">
+          <label for="f-email">Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+          <label for="f-country">País<input id="f-country" name="country" autocomplete="country-name" placeholder="Argentina, México, Chile…"></label>
+        </div>
+        <div class="row2">
+          <label for="f-service">Necesito
+            <select id="f-service" name="service">
+              <option>Montar una planta nueva</option>
+              <option>Resolver un problema de proceso</option>
+              <option>Capacitar a mi equipo</option>
+              <option>Comprar maquinaria en Asia</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label for="f-process">Proceso
+            <select id="f-process" name="process">
+              <option>Extrusión</option><option>Inyección</option><option>Soplado</option><option>Termoformado</option><option>Rotomoldeo</option><option>Aún no lo sé</option>
+            </select>
+          </label>
+        </div>
+        <label for="f-msg">Contame el proyecto<textarea id="f-msg" name="message" placeholder="Producto, material, volumen estimado, plazos…"></textarea></label>
+        <button class="btn" type="submit">Solicitar diagnóstico</button>
+        <p class="form-note">Respuesta en un plazo de 48 horas hábiles.</p>
+        <p class="ok" id="f-ok" hidden>Se abrió tu programa de correo con la consulta lista. Si no se abrió, escribí directamente a davidlopez27@yahoo.com.ar.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 David López · Consultoría en transformación de polímeros</span>
+    <span class="draft">BORRADOR BASE v0.1 · textos y datos a validar con David</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('lead-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target;
+  if(!f.reportValidity()) return;
+  var v=function(n){return (f.elements[n].value||'').trim();};
+  var subject='Solicitud de diagnóstico: '+v('service')+' ('+v('process')+')';
+  var body='Nombre: '+v('name')+'\nEmpresa: '+v('company')+'\nEmail: '+v('email')+'\nPaís: '+v('country')+'\nNecesito: '+v('service')+'\nProceso: '+v('process')+'\n\n'+v('message');
+  window.location.href='mailto:davidlopez27@yahoo.com.ar?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  document.getElementById('f-ok').hidden=false;
+});
+</script>
+</body>
+</html>
